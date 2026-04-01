@@ -378,7 +378,236 @@ footer{text-align:center;padding:30px;background:#05071d}
     grid-template-columns:1fr;
   }
 }
-  
+ 
+/* ================= COMPANY OVERVIEW ================= */
+
+.company{
+  background:#f4f5f7;
+  text-align:center;
+  padding:80px 8%;
+}
+
+.company h2{
+  font-size:44px;
+  color:#111827;
+  margin-bottom:20px;
+}
+
+.company-desc{
+  max-width:900px;
+  margin:auto;
+  color:#555;
+  line-height:1.8;
+  font-size:18px;
+}
+
+.company-btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 28px;
+  border-radius:40px;
+  border:2px solid #c7c9f4;
+  color:#6c63ff;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.company-btn:hover{
+  background:#6c63ff;
+  color:#fff;
+}
+
+/* Logos row */
+.tech-logos{
+  margin-top:60px;
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.tech-logos img{
+  height:60px;
+  padding:18px 28px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.tech-logos img:hover{
+  transform:translateY(-6px);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .company h2{font-size:32px}
+
+  .company-desc{
+    font-size:16px;
+    padding:0 10px;
+  }
+
+  .tech-logos img{
+    height:45px;
+    padding:14px 18px;
+  }
+}
+
+/* ===== INTEGRATION LOGO BOXES (ALL SAME SIZE) ===== */
+
+.logo-slider{
+  margin-top:20px; /* reduces gap from button */
+  overflow:hidden;
+  position:relative;
+}
+
+.logo-track{
+  display:flex;
+  gap:30px;
+  width:max-content;
+  animation:scrollLogos 25s linear infinite;
+}
+
+/* ===== FINAL LOGO BOX DESIGN ===== */
+
+.logo-slider{
+  margin-top:30px;
+  overflow:hidden;
+}
+
+.logo-track{
+  display:flex;
+  gap:25px;
+  animation:scrollLogos 25s linear infinite;
+}
+
+/* UNIFORM BOX */
+.logo-item{
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* REMOVE BOX STYLING */
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* LOGO IMAGE */
+.logo-item img{
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+
+  /* remove zoom/scale */
+  transform: none;
+  transition: 0.3s ease;
+}
+
+.logo-item img{
+  opacity: 0.7;
+}
+
+.logo-item:hover img{
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* LOGO TEXT */
+.logo-item span{
+  font-size:14px;
+  font-weight:600;
+  color:#333;
+  letter-spacing:.5px;
+}
+
+/* HOVER */
+.logo-item:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(108,99,255,.15);
+}
+
+/* BIG LOGOS */
+.logo-item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+
+  transform:scale(1.4);   /* 🔥 increases logo size cleanly */
+  transition:.3s;
+}
+
+/* HOVER EFFECT */
+.logo-item:hover{
+  transform:translateY(-8px);
+}
+
+.logo-item:hover img{
+  transform:scale(1.6);
+}
+
+
+.logo-item:hover{
+  transform:translateY(-8px) scale(1.05);
+  box-shadow:0 20px 50px rgba(108,99,255,.18);
+}
+.logo-item:hover img{
+  transform:scale(1.15);
+} 
+
+/* scrolling animation */
+@keyframes scrollLogos{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* MOBILE */
+
+.logo-track img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transform:scale(1.8);   /* 👈 THIS IS THE MAGIC */
+}
+.logo-item:hover img{
+  transform:scale(2);
+}
+
+}
+/* LOGO CARD (same size for all logos) */
+.logo-card{
+  width:140px;
+  height:90px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s;
+}
+
+/* logo image inside card */
+.logo-card img{
+  max-width:70%;
+  max-height:60%;
+  object-fit:contain;
+  opacity:.85;
+  transition:.3s;
+}
+
+.logo-card:hover{
+  transform:translateY(-6px);
+}
+
+.logo-card:hover img{
+  opacity:1;
+}
 </style>
   
 </head>
@@ -404,6 +633,77 @@ footer{text-align:center;padding:30px;background:#05071d}
 <a href="https://wa.me/919990486814" class="cta">Book Free Consultation</a>
 </div>
 </div>
+
+<!-- COMPANY OVERVIEW -->
+<section class="company">
+  <div class="company-container">
+
+    <h2>Company Overview</h2>
+
+    <p class="company-desc">
+      ScalingDB is an emerging technology and customer-centric database consulting company
+      dedicated to providing top-tier database and cloud services worldwide.
+      Our focus is on delivering seamless, reliable and high-performance data solutions,
+      positioning ourselves as an extension of our clients’ engineering teams.
+      Our commitment lies in understanding and meeting the unique needs of every customer.
+    </p>
+
+    <a href="#services" class="company-btn">Know About All Integrations</a>
+
+    <!-- TECH STACK -->
+    <div class="tech-logos">
+<!-- SLIDING TECH STACK -->
+<div class="logo-slider">
+<div class="logo-track">
+
+  <div class="logo-item">
+    <img src="assets/oracle.png" alt="Oracle">
+  </div>
+
+  <div class="logo-item">
+    <img src="assets/postgresql.png" alt="PostgreSQL">
+  </div>
+
+  <div class="logo-item">
+    <img src="assets/aws.png" alt="AWS">
+  </div>
+
+  <div class="logo-item">
+    <img src="assets/microsoft.png" alt="Microsoft">
+  </div>
+
+  <div class="logo-item">
+    <img src="assets/java.png" alt="Java">
+  </div>
+
+  <div class="logo-item">
+    <img src="assets/jenkins.png" alt="Jenkins">
+  </div>
+
+  <div class="logo-item">
+    <img src="assets/linux.png" alt="Linux">
+  </div>
+
+  <div class="logo-item">
+    <img src="assets/google_cloud.png" alt="Google Cloud">
+  </div>
+
+  <div class="logo-item">
+    <img src="assets/datadog.png" alt="Datadog">
+  </div>
+
+  <!-- duplicate for smooth scrolling -->
+  <div class="logo-item"><img src="assets/oracle.png"><span>Oracle</span></div>
+  <div class="logo-item"><img src="assets/postgresql.png"><span>PostgreSQL</span></div>
+  <div class="logo-item"><img src="assets/aws.png"><span>AWS</span></div>
+  <div class="logo-item"><img src="assets/microsoft.png"><span>Microsoft</span></div>
+
+</div>
+</div>
+    </div>
+
+  </div>
+</section>
 
 <!-- CONSULTING -->
 <section>
