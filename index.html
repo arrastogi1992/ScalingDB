@@ -1,3 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScalingDB – Database Consulting</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome (for WhatsApp icon) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Your main CSS file -->
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins;background:#0b0f2a;color:#fff}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:99;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 8%;
+
+  /* glass navbar look */
+  background:rgba(10,15,40,.55);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* LOGO WRAPPER */
+.logo-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+/* glow behind logo */
+.logo-wrap::before{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  background:radial-gradient(circle, rgba(108,99,255,.35), transparent 70%);
+  filter:blur(20px);
+  z-index:-1;
+}
+
+/* LOGO IMAGE */
+.logo-wrap img{
+  height:98px;
+  width:auto;
+  display:block;
+
+  /* make logo blend with navbar */
+  filter:brightness(1.25) contrast(1.1);
+  mix-blend-mode:screen;
+  opacity:.95;
+  transition:all .3s ease;
+}
+
+/* subtle hover effect */
+.logo-wrap img:hover{
+  transform:scale(1.05);
+  opacity:1;
+}
+
+.nav-btn{
+  background:#6c63ff;
+  padding:10px 18px;
+  border-radius:6px;
+  margin-left:10px;
+  color:#fff;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.nav-btn:hover{
+  background:#7d76ff;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+background:linear-gradient(rgba(7,10,40,.85),rgba(7,10,40,.85)),
+url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070');
+background-size:cover;
+display:flex;align-items:center;padding:0 8%;
+}
+.hero h1{font-size:60px;max-width:800px}
+.hero p{margin:20px 0;color:#cfd3ff}
+.cta{background:#6c63ff;padding:15px 30px;border-radius:8px;color:#fff;text-decoration:none}
+
+/* CONSULTING */
+section{padding:90px 8%}
+.title{text-align:center;font-size:40px;margin-bottom:60px}
+.consult-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.consult-card{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.4);transition:.4s}
+.consult-card img{width:100%;height:260px;object-fit:cover}
+.consult-card:hover{transform:translateY(-10px)}
+.consult-overlay{position:absolute;bottom:0;padding:25px;background:linear-gradient(transparent,rgba(0,0,0,.95));width:100%}
+
+/* SERVICES */
+.services{background:#1A1B59}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+.card{background:rgba(255,255,255,.05);padding:35px;border-radius:15px;text-align:center;transition:.4s}
+.card:hover{transform:translateY(-10px);background:#6c63ff}
+.icon{font-size:35px;margin-bottom:15px}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.step{background:#12164b;padding:30px;border-radius:15px;border-left:5px solid #6c63ff}
+
+/* BLOG */
+.blog{background:linear-gradient(90deg,#6c63ff,#8a2be2);text-align:center;padding:70px}
+.blog a{background:#fff;color:#6c63ff;padding:14px 30px;border-radius:8px;text-decoration:none}
+
+/* FLOATING WHATSAPP */
+.whatsapp{
+position:fixed;bottom:25px;right:25px;background:#25D366;
+width:60px;height:60px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:30px;color:#fff;text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+animation:bounce 2s infinite
+}
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-8px)}
+}
+
+  
+footer{text-align:center;padding:30px;background:#05071d}
+
+/* Premium database architecture image */
+.arch-wrapper{
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.arch-img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 30px 70px rgba(0,0,0,.45);
+  transition:all .5s ease;
+}
+
+.arch-img:hover{
+  transform:scale(1.05);
+  box-shadow:0 40px 90px rgba(0,0,0,.6);
+}
+
+.arch-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.05));
+  opacity:.7;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px){
+
+  /* NAVBAR */
+  nav{
+    padding:12px 6%;
+  }
+
+  .logo-wrap img{
+    height:70px;
+  }
+
+  /* HERO SECTION */
+  .hero{
+    padding-top:140px;
+    text-align:center;
+  }
+
+  img{
+  max-width:100%;
+  height:auto;
+  }
+  
+  .hero h1{
+    font-size:34px;
+    line-height:1.3;
+  }
+
+  .hero p{
+    font-size:16px;
+    padding:0 10px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    gap:15px;
+    align-items:center;
+  }
+
+  /* SERVICES GRID */
+  .services-grid{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
+  /* CONSULTING / JOURNEY SECTION */
+  .consult-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* WHY CHOOSE US */
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* BLOG SECTION */
+  .blog-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* CONTACT SECTION */
+  .contact-container{
+    flex-direction:column;
+    gap:30px;
+  }
+
+  footer{
+    font-size:14px;
+  }
+}
+
+/* ===== HERO MOBILE OPTIMIZATION ===== */
+@media(max-width:768px){
+
+  .hero{
+    height:auto;              /* allow section to grow */
+    min-height:90vh;          /* still tall but flexible */
+    padding:120px 25px 80px;  /* more breathing space */
+    background-position:center top; /* show top part of image */
+    background-size:cover;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:34px;
+    line-height:1.3;
+  }
+
+  .hero p{
+    font-size:16px;
+    padding:0 10px;
+  }
+
+}
+
+/* ================= INTRO SECTION ================= */
+.intro{
+  background:#f6f7fb;
+  color:#111;
+}
+
+.intro-container{
+  display:flex;
+  align-items:center;
+  gap:70px;
+}
+
+/* LEFT IMAGES */
+.intro-images{
+  position:relative;
+  width:50%;
+  min-height:520px;
+}
+
+.intro-images img{
+  position:absolute;
+  border-radius:12px;
+  box-shadow:0 25px 50px rgba(0,0,0,.2);
+}
+
+.img1{width:260px; left:0; top:0;}
+.img2{width:280px; left:120px; top:140px;}
+.img3{width:260px; left:0; bottom:0;}
+
+/* RIGHT CONTENT */
+.intro-text{width:50%}
+
+.intro-tag{
+  color:#6c63ff;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+.intro h2{
+  font-size:44px;
+  margin:15px 0;
+  color:#1c2540;
+}
+
+.intro-quote{
+  color:#555;
+  margin-bottom:15px;
+}
+
+.intro-highlight{
+  color:#6c63ff;
+  font-weight:600;
+  margin-bottom:30px;
+}
+
+.intro-points{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.point{
+  display:flex;
+  gap:15px;
+}
+
+.check{
+  background:#1e90ff;
+  color:#fff;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+}
+
+/* Founder */
+.founder{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-top:35px;
+}
+
+.founder img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .intro-container{
+    flex-direction:column;
+  }
+
+  .intro-images,
+  .intro-text{
+    width:100%;
+  }
+
+  .intro-images{
+    height:420px;
+  }
+
+  .intro h2{
+    font-size:30px;
+  }
+
+  .intro-points{
+    grid-template-columns:1fr;
+  }
+}
+ 
+/* ================= COMPANY OVERVIEW ================= */
+
+.company{
+  background:#f4f5f7;
+  text-align:center;
+  padding:80px 8%;
+}
+
+.company h2{
+  font-size:44px;
+  color:#111827;
+  margin-bottom:20px;
+}
+
+.company-desc{
+  max-width:900px;
+  margin:auto;
+  color:#555;
+  line-height:1.8;
+  font-size:18px;
+}
+
+.company-btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 28px;
+  border-radius:40px;
+  border:2px solid #c7c9f4;
+  color:#6c63ff;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.company-btn:hover{
+  background:#6c63ff;
+  color:#fff;
+}
+
+/* Logos row */
+.tech-logos{
+  margin-top:60px;
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.tech-logos img{
+  height:60px;
+  padding:18px 28px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.tech-logos img:hover{
+  transform:translateY(-6px);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .company h2{font-size:32px}
+
+  .company-desc{
+    font-size:16px;
+    padding:0 10px;
+  }
+
+  .tech-logos img{
+    height:45px;
+    padding:14px 18px;
+  }
+}
+
+/* ===== INTEGRATION LOGO BOXES (ALL SAME SIZE) ===== */
+
 .logo-slider {
   width: 100%;
   overflow: hidden;
@@ -41,3 +501,346 @@
     transform: translateX(-50%);
   }
 }
+.logo-track{
+  display:flex;
+  gap:25px;
+  animation:scrollLogos 25s linear infinite;
+}
+
+/* UNIFORM BOX */
+.logo-item{
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* REMOVE BOX STYLING */
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* LOGO IMAGE */
+.logo-item img{
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+
+  /* remove zoom/scale */
+  transform: none;
+  transition: 0.3s ease;
+}
+
+.logo-item img{
+  opacity: 0.7;
+}
+
+.logo-item:hover img{
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* LOGO TEXT */
+.logo-item span{
+  font-size:14px;
+  font-weight:600;
+  color:#333;
+  letter-spacing:.5px;
+}
+
+/* HOVER */
+.logo-item:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(108,99,255,.15);
+}
+
+/* BIG LOGOS */
+.logo-item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+
+  transform:scale(1.4);   /* 🔥 increases logo size cleanly */
+  transition:.3s;
+}
+
+/* HOVER EFFECT */
+.logo-item:hover{
+  transform:translateY(-8px);
+}
+
+.logo-item:hover img{
+  transform:scale(1.6);
+}
+
+
+.logo-item:hover{
+  transform:translateY(-8px) scale(1.05);
+  box-shadow:0 20px 50px rgba(108,99,255,.18);
+}
+.logo-item:hover img{
+  transform:scale(1.15);
+} 
+
+/* scrolling animation */
+@keyframes scrollLogos{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* MOBILE */
+
+.logo-track img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transform:scale(1.8);   /* 👈 THIS IS THE MAGIC */
+}
+.logo-item:hover img{
+  transform:scale(2);
+}
+
+}
+/* LOGO CARD (same size for all logos) */
+.logo-card{
+  width:140px;
+  height:90px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s;
+}
+
+/* logo image inside card */
+.logo-card img{
+  max-width:70%;
+  max-height:60%;
+  object-fit:contain;
+  opacity:.85;
+  transition:.3s;
+}
+
+.logo-card:hover{
+  transform:translateY(-6px);
+}
+
+.logo-card:hover img{
+  opacity:1;
+}
+</style>
+  
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo-wrap">
+    <img src="assets/ScalingDB_website_logo.jpg">
+  </div>
+
+  <div class="nav-right">
+    <a href="#contact" class="nav-btn">Contact Us</a>
+    <a href="https://wa.me/919990486814" class="nav-btn whatsapp-nav">WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<div>
+<h1>Empowering Data-Driven Growth With Scalable & Secure Database Solutions</h1>
+<p>End-to-end database consulting helping businesses scale confidently.</p>
+<a href="https://wa.me/919990486814" class="cta">Book Free Consultation</a>
+</div>
+</div>
+
+<!-- COMPANY OVERVIEW -->
+<section class="company">
+  <div class="company-container">
+
+    <h2>Company Overview</h2>
+
+    <p class="company-desc">
+      ScalingDB is an emerging technology and customer-centric database consulting company
+      dedicated to providing top-tier database and cloud services worldwide.
+      Our focus is on delivering seamless, reliable and high-performance data solutions,
+      positioning ourselves as an extension of our clients’ engineering teams.
+      Our commitment lies in understanding and meeting the unique needs of every customer.
+    </p>
+
+    <a href="#services" class="company-btn">Know About All Integrations</a>
+
+    <!-- TECH STACK -->
+    <div class="tech-logos">
+<!-- SLIDING TECH STACK -->
+<div class="logo-slider">
+  <div class="logo-track">
+
+    <div class="logo-item"><img src="assets/aws.png"></div>
+    <div class="logo-item"><img src="assets/datadog.png"></div>
+    <div class="logo-item"><img src="assets/google_cloud.png"></div>
+    <div class="logo-item"><img src="assets/java.png"></div>
+    <div class="logo-item"><img src="assets/jenkins.png"></div>
+    <div class="logo-item"><img src="assets/linux.png"></div>
+    <div class="logo-item"><img src="assets/microsoft.png"></div>
+    <div class="logo-item"><img src="assets/oracle.png"></div>
+    <div class="logo-item"><img src="assets/postgresql.png"></div>
+
+    <!-- duplicate for smooth infinite scroll -->
+    <div class="logo-item"><img src="assets/aws.png"></div>
+    <div class="logo-item"><img src="assets/datadog.png"></div>
+    <div class="logo-item"><img src="assets/google_cloud.png"></div>
+    <div class="logo-item"><img src="assets/java.png"></div>
+    <div class="logo-item"><img src="assets/jenkins.png"></div>
+    <div class="logo-item"><img src="assets/linux.png"></div>
+    <div class="logo-item"><img src="assets/microsoft.png"></div>
+    <div class="logo-item"><img src="assets/oracle.png"></div>
+    <div class="logo-item"><img src="assets/postgresql.png"></div>
+
+  </div>
+</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONSULTING -->
+<section>
+<h2 class="title">Core Database Consulting Services</h2>
+<div class="consult-grid">
+
+<div class="consult-card">
+  <div class="arch-wrapper">
+    <img class="arch-img" src="assets/Database%20Architecture.jpg" alt="Database Architecture">
+    <div class="arch-overlay"></div>
+  </div>
+  <div class="consult-overlay">
+    <h3>Database Architecture</h3>
+    <p>Future-proof scalable system design</p>
+  </div>
+</div>
+  
+<div class="consult-card">
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072">
+<div class="consult-overlay">
+<h3>Cloud Migration</h3>
+<p>Move to AWS / Azure safely</p>
+</div>
+</div>
+
+<div class="consult-card">
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2074">
+<div class="consult-overlay">
+<h3>Performance Engineering</h3>
+<p>Speed up slow databases</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+<h2 class="title">Our Best Services</h2>
+<div class="service-grid">
+<div class="card"><div class="icon">🗄️</div><h3>Core Database Services</h3></div>
+<div class="card"><div class="icon">☁️</div><h3>Cloud Database Services</h3></div>
+<div class="card"><div class="icon">⚙️</div><h3>Advanced Scaling</h3></div>
+<div class="card"><div class="icon">🔁</div><h3>High Availability</h3></div>
+<div class="card"><div class="icon">📊</div><h3>Monitoring</h3></div>
+<div class="card"><div class="icon">🚀</div><h3>Performance</h3></div>
+<div class="card"><div class="icon">🔒</div><h3>Security</h3></div>
+<div class="card"><div class="icon">🔄</div><h3>Backup & DR</h3></div>
+<div class="card"><div class="icon">🧑‍💻</div><h3>24/7 DBA Support</h3></div>
+</div>
+</section>
+
+<!-- BLOG -->
+<!-- WHY CHOOSE US / INTRO -->
+<section class="intro">
+  <div class="intro-container">
+
+    <!-- LEFT IMAGES -->
+    <div class="intro-images">
+      <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800" class="img1">
+      <img src="https://cdn-icons-png.flaticon.com/512/921/921347.png" class="img2">
+      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800" class="img3">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="intro-text">
+      <span class="intro-tag">INTRODUCTION TO US</span>
+      <h2>How We Became Best Among Others ?</h2>
+
+      <p class="intro-quote">
+        A journey built on a foundation of trust, precision, and deep technical expertise.
+      </p>
+
+      <p class="intro-highlight">
+        From humble beginnings to becoming a trusted database partner for fast-growing companies,
+        we earned our place through commitment, innovation, and results.
+      </p>
+
+      <div class="intro-points">
+
+        <div class="point">
+          <div class="check">✔</div>
+          <div>
+            <h4>Client-Centric Approach</h4>
+            <p>Every engagement is tailored to your business goals and budget.</p>
+          </div>
+        </div>
+
+        <div class="point">
+          <div class="check">✔</div>
+          <div>
+            <h4>Deep Domain Expertise</h4>
+            <p>From PostgreSQL to AWS RDS, we deliver proven solutions.</p>
+          </div>
+        </div>
+
+        <div class="point">
+          <div class="check">✔</div>
+          <div>
+            <h4>24/7 Reliability</h4>
+            <p>Proactive monitoring ensures your DB stays secure & available.</p>
+          </div>
+        </div>
+
+        <div class="point">
+          <div class="check">✔</div>
+          <div>
+            <h4>Transparent Communication</h4>
+            <p>No jargon. No surprises. Only clear collaboration.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="founder">
+        <img src="https://avatars.githubusercontent.com/u/1?v=4">
+        <div>
+          <b>Arpit Rastogi</b>
+          <span>Founder</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="blog">
+<h2>Read Our Latest Blog</h2>
+<br>
+<a href="https://scalingdb.unaux.com/2025/07/05/database-design-database-architecture-why-they-are-crucial/">Visit Blog</a>
+</div>
+
+<footer>© 2026 ScalingDB Consulting</footer>
+
+<a class="whatsapp" href="https://wa.me/919990486814">💬</a>
+
+</body>
+</html>
