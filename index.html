@@ -19,6 +19,130 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Poppins;background:#0b0f2a;color:#fff}
 
+.contact-form textarea{
+  resize: none;
+}
+
+.contact-form textarea{
+  resize: none;
+  min-height: 140px;
+  max-height: 140px;
+}
+.contact-form button{
+  display:block;
+  margin:20px auto 0;
+}
+/* ================= CONTACT SECTION ================= */
+.contact{
+  padding:90px 8%;
+  background:#0b0f2a;
+}
+
+.contact-title{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:60px;
+}
+
+/* LAYOUT */
+.contact-container{
+  display:flex;
+  gap:50px;
+}
+
+/* LEFT SIDE */
+.contact-info{
+  width:45%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.info-card{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:15px;
+  transition:.3s;
+}
+
+.info-card:hover{
+  transform:translateY(-8px);
+  background:#6c63ff;
+}
+
+.info-card .icon{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.info-card h3{
+  margin-bottom:10px;
+}
+
+/* RIGHT SIDE */
+.contact-form{
+  width:55%;
+  background:rgba(255,255,255,0.05);
+  padding:35px;
+  border-radius:15px;
+}
+
+/* FORM */
+.form-row{
+  display:flex;
+  gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:20px;
+  border:none;
+  border-radius:8px;
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color:#ccc;
+}
+
+.contact-form button{
+  background:#6c63ff;
+  border:none;
+  padding:14px 30px;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.contact-form button:hover{
+  background:#7d76ff;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .contact-container{
+    flex-direction:column;
+  }
+
+  .contact-info{
+    width:100%;
+    grid-template-columns:1fr;
+  }
+
+  .contact-form{
+    width:100%;
+  }
+
+  .form-row{
+    flex-direction:column;
+  }
+}
 
 .nav-right{
   display:flex;
@@ -647,7 +771,144 @@ footer{text-align:center;padding:30px;background:#05071d}
   opacity: 1;
 }
 
+/* ================= FOOTER ================= */
+.footer{
+  background:#05071d;
+  color:#ccc;
+  padding:70px 8% 20px;
+  position:relative;
+  overflow:hidden;
+}
 
+/* subtle world map background */
+.footer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('https://www.transparenttextures.com/patterns/cubes.png');
+  opacity:0.05;
+}
+
+/* LAYOUT */
+.footer-container{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:50px;
+  align-items:start;   /* ensures same top line */
+}
+
+.footer-col h2,
+.footer-col h3{
+  margin-top:0;
+}
+
+.footer-col{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+.footer-col h2{
+  line-height:1;
+}
+
+/* HEADINGS */
+.footer-col h2{
+  color:#fff;
+  margin-bottom:20px;
+}
+
+.footer-col h3{
+  color:#fff;
+  margin-bottom:20px;
+}
+
+/* TEXT */
+.footer-col p{
+  line-height:1.7;
+  margin-bottom:10px;
+}
+
+/* LINKS */
+.footer-col ul{
+  list-style:none;
+}
+
+.footer-col ul li{
+  margin-bottom:12px;
+}
+
+.footer-col ul li a{
+  color:#ccc;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.footer-col ul li a:hover{
+  color:#6c63ff;
+  padding-left:5px;
+}
+
+/* SOCIAL */
+.social-icons a{
+  display:inline-block;
+  margin-top:15px;
+  font-size:20px;
+  color:#6c63ff;
+  transition:.3s;
+}
+
+.social-icons a:hover{
+  transform:scale(1.2);
+}
+
+/* BOTTOM BAR */
+.footer-bottom{
+  text-align:center;
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+}
+}
+
+/* SOCIAL */
+.social-icons a{
+  display:inline-block;
+  margin-top:15px;
+  font-size:20px;
+  color:#6c63ff;
+  transition:.3s;
+}
+
+.social-icons a:hover{
+  transform:scale(1.2);
+}
+
+/* BOTTOM BAR */
+.footer-bottom{
+  text-align:center;
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+}
 
 
 </style>
@@ -859,9 +1120,141 @@ footer{text-align:center;padding:30px;background:#05071d}
 <a href="https://scalingdb.unaux.com/2025/07/05/database-design-database-architecture-why-they-are-crucial/">Visit Blog</a>
 </div>
 
-<footer>© 2026 ScalingDB Consulting</footer>
+<section class="contact" id="contact">
+
+  <h2 class="contact-title">Contact Us</h2>
+
+  <div class="contact-container">
+
+    <!-- LEFT SIDE -->
+    <div class="contact-info">
+
+      <div class="info-card">
+        <div class="icon">📍</div>
+        <h3>Location</h3>
+        <p>Marvel Ideal Spacio, Undri, Pune, 411060</p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon">📞</div>
+        <h3>Call Us</h3>
+        <p>+91 9990 486 814</p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon">✉️</div>
+        <h3>Email Us</h3>
+        <p>rastogi.arpit1412@gmail.com</p>
+        <p>rastogi.arpit987@gmail.com</p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon">⏰</div>
+        <h3>Open Hours</h3>
+        <p>Monday - Friday</p>
+        <p>9:00AM - 05:00PM</p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+    <div class="contact-form">
+
+      <form action="mailto:rastogi.arpit1412@gmail.com" method="POST" enctype="text/plain">
+
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+        </div>
+
+        <input type="text" placeholder="Subject" required>
+
+        <textarea placeholder="Message" rows="6" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
 
 <a class="whatsapp" href="https://wa.me/919990486814">💬</a>
+
+<script>
+  window.addEventListener("load", function() {
+    const form = document.querySelector(".contact-form form");
+    if(form){
+      form.reset();
+    }
+  });
+</script>
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- LEFT: COMPANY INFO -->
+    <div class="footer-col">
+      <h2>ScalingDB</h2>
+
+      <p>
+        We at ScalingDB design and optimize databases using AI-driven insights for peak performance and scalability.
+        Leveraging intelligent automation, we identify bottlenecks and enhance query efficiency in real time.
+        Our approach blends traditional database expertise with modern AI techniques for smarter data management.
+        This enables resilient, high-availability systems that adapt and evolve with business needs.
+      </p>
+
+      <!-- SOCIAL -->
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/scalingdb/?viewAsMember=true" target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- USEFUL LINKS -->
+    <div class="footer-col">
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="footer-col">
+      <h3>Our Services</h3>
+      <ul>
+        <li>Database Architecture</li>
+        <li>Cloud Migration</li>
+        <li>Performance Engineering</li>
+        <li>High Availability</li>
+        <li>Backup & Disaster Recovery</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p>Marvel Ideal Spacio, Undri, Pune, 411060</p>
+      <p><strong>Phone:</strong> +91 9990 486 814</p>
+      <p><strong>Email:</strong> rastogi.arpit1412@gmail.com</p>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="footer-bottom">
+    © 2026 ScalingDB Consulting. All Rights Reserved.
+  </div>
+
+</footer>
 
 </body>
 </html>
