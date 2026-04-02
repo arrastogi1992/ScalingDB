@@ -19,6 +19,41 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Poppins;background:#0b0f2a;color:#fff}
 
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.nav-link{
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+  transition:.3s;
+}
+
+/* underline hover animation */
+.nav-link::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:#6c63ff;
+  left:0;
+  bottom:-5px;
+  transition:.3s;
+}
+
+.nav-link:hover{
+  color:#6c63ff;
+}
+
+.nav-link:hover::after{
+  width:100%;
+}
+
 /* NAVBAR */
 nav{
   position:fixed;
