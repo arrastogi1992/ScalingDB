@@ -116,17 +116,32 @@ body{font-family:Poppins;background:#0b0f2a;color:#fff}
 
 /* MOBILE */
 @media (max-width: 768px) {
+
   .contact-info {
-    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 0 10px; /* small side spacing */
+    grid-template-columns: repeat(2, 1fr); /* keep 2 per row */
+    gap: 12px;
   }
+
 }
 
-.info-card {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s ease forwards;
+.icon-box {
+  display: flex;
+  justify-content: center;   /* ✅ center horizontally */
+  align-items: center;
+  margin: 0 auto 12px;       /* ✅ push to center */
 }
+  .info-card h3 {
+    text-align: center;
+    margin-bottom: 8px;
+  }
 
+  .info-card p {
+    text-align: center;
+  }
+
+}
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -198,6 +213,7 @@ body{font-family:Poppins;background:#0b0f2a;color:#fff}
   .contact-container{
     flex-direction:column;
   }
+
 
 @media (max-width: 768px) {
 
@@ -490,6 +506,7 @@ footer{text-align:center;padding:30px;background:#05071d}
   }
 
 }
+
 
 
 .card:active {
@@ -1079,6 +1096,50 @@ footer{text-align:center;padding:30px;background:#05071d}
   }
 }
 
+/* DEFAULT */
+.nav-right{
+  display:flex;
+  gap:25px;
+}
+
+.menu-toggle{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+  .menu-toggle{
+    display:block;
+    color:#fff;
+  }
+
+  .nav-right{
+    position:absolute;
+    top:70px;
+    right:0;
+    width:100%;
+    background:#0b0f2a;
+
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+
+    padding:20px 0;
+
+    display:none; /* hidden by default */
+  }
+
+  .nav-right.active{
+    display:flex;
+  }
+
+  .nav-link{
+    font-size:16px;
+  }
+}
 
 </style>
   
@@ -1091,12 +1152,18 @@ footer{text-align:center;padding:30px;background:#05071d}
     <img src="assets/ScalingDB_website_logo.jpg">
   </div>
 
-<div class="nav-right">
-  <a href="#" class="nav-link">Home</a>
-  <a href="#about" class="nav-link">About</a>
-  <a href="#services" class="nav-link">Service</a>
-  <a href="#contact" class="nav-link">Contact</a>
-</div>
+  <!-- Hamburger -->
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <!-- Menu -->
+  <div class="nav-right" id="nav-menu">
+    <a href="#" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#services" class="nav-link">Service</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1501,6 +1568,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+
 </script>
+
+<script>
+const toggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("nav-menu");
+
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
+</script>
+
 </body>
 </html>
