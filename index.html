@@ -1141,6 +1141,44 @@ footer{text-align:center;padding:30px;background:#05071d}
   }
 }
 
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;            /* hidden initially */
+  width: 75%;
+  height: 100vh;           /* full screen height */
+
+  background: #0b0f2a;
+  padding: 80px 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  transition: right 0.4s ease;
+  z-index: 9999;           /* 🔥 VERY IMPORTANT */
+}
+
+/* active state */
+.mobile-menu.active {
+  right: 0;
+}
+
+/* links */
+.mobile-menu a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* hamburger visible only on mobile */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
 </style>
   
 </head>
@@ -1153,17 +1191,16 @@ footer{text-align:center;padding:30px;background:#05071d}
   </div>
 
   <!-- Hamburger -->
-  <div class="menu-toggle" id="menu-toggle">
-    <i class="fa-solid fa-bars"></i>
-  </div>
+<div class="menu-toggle" id="menu-toggle">
+  <i class="fa-solid fa-bars"></i>
+</div>
 
-  <!-- Menu -->
-  <div class="nav-right" id="nav-menu">
-    <a href="#" class="nav-link">Home</a>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#services" class="nav-link">Service</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </div>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Service</a>
+  <a href="#contact">Contact</a>
+</div>
 </nav>
 
 <!-- HERO -->
@@ -1194,6 +1231,8 @@ footer{text-align:center;padding:30px;background:#05071d}
     <!-- TECH STACK -->
     <div class="tech-logos">
 <!-- SLIDING TECH STACK -->
+<!--
+
 <div class="logo-slider">
   <div class="logo-track">
 
@@ -1207,7 +1246,10 @@ footer{text-align:center;padding:30px;background:#05071d}
     <div class="logo-item"><img src="assets/Oracle.png"></div>
     <div class="logo-item"><img src="assets/PostgreSQL.png"></div>
 
+-->
+
     <!-- duplicate for smooth infinite scroll -->
+<!--
     <div class="logo-item"><img src="assets/AWS.png"></div>
     <div class="logo-item"><img src="assets/Datadog.png"></div>
     <div class="logo-item"><img src="assets/Google_cloud.png"></div>
@@ -1220,9 +1262,10 @@ footer{text-align:center;padding:30px;background:#05071d}
 
   </div>
 </div>
+-->
     </div>
 
-  </div>
+  </div>-->
 </section>
 
 <!-- CONSULTING -->
@@ -1573,13 +1616,22 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <script>
-const toggle = document.getElementById("menu-toggle");
-const menu = document.getElementById("nav-menu");
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
 
-toggle.addEventListener("click", () => {
-  menu.classList.toggle("active");
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+    });
+  });
 });
 </script>
+
 
 </body>
 </html>
