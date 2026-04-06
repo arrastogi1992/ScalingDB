@@ -40,8 +40,8 @@ body{font-family:Poppins;background:#0b0f2a;color:#fff}
 
 .contact-title{
   text-align:center;
-  font-size:40px;
-  margin-bottom:60px;
+  font-size:28px;
+  margin-bottom:40px;
 }
 
 /* LAYOUT */
@@ -485,6 +485,7 @@ footer{text-align:center;padding:30px;background:#05071d}
   .title {
     font-size: 28px;
     margin-bottom: 40px;
+    font-weight: 0;
   }
 
   .service-grid {
@@ -558,6 +559,9 @@ footer{text-align:center;padding:30px;background:#05071d}
     gap:25px;
   }
 
+.services {
+  scroll-margin-top: 80px; /* adjust based on navbar height */
+}
   /* CONSULTING / JOURNEY SECTION */
   .consult-grid{
     grid-template-columns:1fr;
@@ -732,18 +736,19 @@ footer{text-align:center;padding:30px;background:#05071d}
   padding:80px 8%;
 }
 
-.company h2{
-  font-size:44px;
-  color:#111827;
-  margin-bottom:20px;
+.company h4{
+  font-size:20px;
+  color:#6c63ff;
+  margin-top: 30px;
 }
 
-.company-desc{
-  max-width:900px;
-  margin:auto;
-  color:#555;
-  line-height:1.8;
-  font-size:18px;
+.company-desc {
+  max-width: 900px;
+  margin: 10px auto 0;   /* 👈 adds space from top */
+  color: #555;
+  line-height: 1.8;
+  font-size: 18px;
+  text-align: left;
 }
 
 .company-btn{
@@ -1179,6 +1184,19 @@ footer{text-align:center;padding:30px;background:#05071d}
   }
 }
 
+.highlight-text {
+  display: block;
+  color: #050647;
+  font-weight: 600;     /* bold */
+  font-size: 1.2em;     /* slightly bigger */
+  margin-bottom: 10px;
+  text-align: left;
+  line-height: 1.5; 
+}
+
+html {
+  scroll-behavior: smooth;
+}
 </style>
   
 </head>
@@ -1213,20 +1231,21 @@ footer{text-align:center;padding:30px;background:#05071d}
 </div>
 
 <!-- COMPANY OVERVIEW -->
-<section class="company">
+<section class="company" id="about">
   <div class="company-container">
 
-    <h2>Company Overview</h2>
+<h4>WHO WE ARE</h4>
 
     <p class="company-desc">
-      ScalingDB is an emerging technology and customer-centric database consulting company
-      dedicated to providing top-tier database and cloud services worldwide.
+      <span class="highlight-text">
+        ScalingDB is an emerging technology and customer-centric database consulting company
+        dedicated to providing top-tier database and cloud services worldwide.
+      </span>
+
       Our focus is on delivering seamless, reliable and high-performance data solutions,
       positioning ourselves as an extension of our clients’ engineering teams.
       Our commitment lies in understanding and meeting the unique needs of every customer.
     </p>
-
-    <a href="#services" class="company-btn">Know About All Integrations</a>
 
     <!-- TECH STACK -->
     <div class="tech-logos">
@@ -1304,7 +1323,7 @@ footer{text-align:center;padding:30px;background:#05071d}
 </section>
 
 <!-- SERVICES -->
-<section class="services">
+<section class="services" id="services">
   <h2 class="title">Our Best Services</h2>
 
   <div class="service-grid">
@@ -1545,7 +1564,7 @@ footer{text-align:center;padding:30px;background:#05071d}
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="#services">Service</a></li>
         <li><a href="#">Privacy Policy</a></li>
       </ul>
     </div>
@@ -1622,19 +1641,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Toggle menu
   toggle.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent immediate close
+    e.stopPropagation();
     menu.classList.toggle("active");
   });
 
-  // Prevent clicks inside menu from closing it
+  // Close menu when clicking outside
+  document.addEventListener("click", () => {
+    menu.classList.remove("active");
+  });
+
+  // Prevent closing when clicking inside menu
   menu.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 
-  // Click anywhere outside → close menu
-  document.addEventListener("click", () => {
-    menu.classList.remove("active");
+  // ✅ CLOSE MENU WHEN CLICKING ANY LINK
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+    });
   });
+
 });
 </script>
 
