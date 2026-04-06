@@ -1204,26 +1204,31 @@ html {
 
 <!-- NAVBAR -->
 <nav>
+
+  <!-- LOGO (click → go to top) -->
   <div class="logo-wrap">
-    <img src="assets/ScalingDB_website_logo.jpg">
+    <a href="#home">
+      <img src="assets/ScalingDB_website_logo.jpg" alt="ScalingDB Logo">
+    </a>
   </div>
 
   <!-- Hamburger -->
-<div class="menu-toggle" id="menu-toggle">
-  <i class="fa-solid fa-bars"></i>
-</div>
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
 
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#">Home</a>
-  <a href="#about">About</a>
-  <a href="#services">Service</a>
-  <a href="#contact">Contact</a>
-</div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Service</a>
+    <a href="#contact">Contact</a>
+  </div>
+
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-<div>
+<div class="hero" id="home"><div>
 <h1>Empowering Data-Driven Growth With Scalable & Secure Database Solutions</h1>
 <p>End-to-end database consulting helping businesses scale confidently.</p>
 <a href="https://wa.me/919990486814" class="cta">Book Free Consultation</a>
