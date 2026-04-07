@@ -19,6 +19,12 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Poppins;background:#0b0f2a;color:#fff}
 
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 🚨 prevents right-side cut */
+}
+
 .contact-form textarea{
   resize: none;
 }
@@ -201,6 +207,12 @@ body{font-family:Poppins;background:#0b0f2a;color:#fff}
   border-radius:8px;
   cursor:pointer;
   transition:.3s;
+}
+
+
+.whatsapp {
+  bottom: 20px;
+  right: 20px;
 }
 
 .contact-form button:hover{
@@ -514,6 +526,17 @@ footer{text-align:center;padding:30px;background:#05071d}
   transform: scale(0.98);
 }
 
+@media (max-width: 768px) {
+
+  .company,
+  .about,
+  .services {
+    padding: 20px;
+    text-align: center;
+  }
+
+}
+
 /* ================= MOBILE ================= */
 @media (max-width: 768px){
 
@@ -609,6 +632,12 @@ footer{text-align:center;padding:30px;background:#05071d}
     font-size:16px;
     padding:0 10px;
   }
+
+section, .container, .hero {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
 }
 
@@ -709,6 +738,25 @@ footer{text-align:center;padding:30px;background:#05071d}
   .intro-container{
     flex-direction:column;
   }
+
+@media (max-width: 768px) {
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .hero img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 20px;
+    position: static; /* 🚨 removes overlap */
+  }
+
+}
 
   .intro-images,
   .intro-text{
@@ -1197,6 +1245,39 @@ footer{text-align:center;padding:30px;background:#05071d}
 html {
   scroll-behavior: smooth;
 }
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+/* Logo */
+.logo-wrap img {
+  height: 50px;
+}
+
+/* Desktop menu */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #6c63ff;
+}
+
+---------------------------------------------------------------
 </style>
   
 </head>
@@ -1211,6 +1292,14 @@ html {
       <img src="assets/ScalingDB_website_logo.jpg" alt="ScalingDB Logo">
     </a>
   </div>
+
+  <!-- RIGHT: DESKTOP MENU -->
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Service</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 
   <!-- Hamburger -->
   <div class="menu-toggle" id="menu-toggle">
