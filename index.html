@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,12 +31,20 @@ body{font-family:Poppins;background:#0b0f2a;color:#fff}
   background:#0b0f2a;
 }
 
+.footer {
+  margin-top: -2px; /* removes tiny white line */
+}
+
 .contact-title{
   text-align:center;
   font-size:28px;
   margin-bottom:40px;
 }
 
+.contact {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
 /* LAYOUT */
 .contact-container{
   display:flex;
@@ -43,7 +53,7 @@ body{font-family:Poppins;background:#0b0f2a;color:#fff}
 
 /* LEFT SIDE */
 .contact-info{
-  width:45%;
+  width:50%;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:25px;
@@ -172,7 +182,7 @@ body{font-family:Poppins;background:#0b0f2a;color:#fff}
 .contact-form textarea{
   width:100%;
   padding:14px;
-  margin-bottom:20px;
+  margin-bottom:25px;
   border:none;
   border-radius:8px;
   background:rgba(255,255,255,0.08);
@@ -616,6 +626,11 @@ footer{text-align:center;padding:30px;background:#05071d}
   background: #f8fafc;
 }
 
+.intro-about {
+  padding: 80px 20px;
+  background: #f8fafc;
+}
+
 /* CENTER HEADER */
 .intro-header {
   text-align: center;
@@ -952,12 +967,18 @@ h4 {
 
 /* ================= FOOTER ================= */
 .footer{
-  background:#05071d;
+  background:#020c2b;
   color:#ccc;
   padding:70px 8% 20px;
   position:relative;
   overflow:hidden;
 }
+
+.footer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
 
 /* subtle world map background */
 .footer::before{
@@ -1029,12 +1050,15 @@ h4 {
 }
 
 /* SOCIAL */
-.social-icons a{
-  display:inline-block;
-  margin-top:15px;
-  font-size:20px;
-  color:#6c63ff;
-  transition:.3s;
+.social-icons a {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 20px;
+  color: #6c63ff;
+  transition: .3s;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
 .social-icons a:hover{
@@ -1181,6 +1205,12 @@ h4 {
   text-align: left;
   line-height: 1.5; 
 }
+
+.blog {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -1338,19 +1368,20 @@ html {
 
 <!-- BLOG -->
 <!-- WHY CHOOSE US / INTRO -->
-<section class="intro">
+<section class="intro-about">
 
-  <!-- CENTERED HEADER -->
-<div class="intro-header">
-  <h2>How We Became Best Among Others?</h2>
-  <p class="intro-highlight">
-We build every partnership on trust, precision, and deep technical expertise tailored to your needs.
-From the start, your success has been the driving force behind everything we do.
-We work as an extension of your team to deliver reliable, high-performance database solutions.
-Our approach ensures your systems stay secure, scalable, and always available.
+  <div class="intro-header">
+    <h2>How We Became Best Among Others?</h2>
 
-  </p>
-</div>
+    <p class="intro-highlight">
+      We build every partnership on trust, precision, and deep technical expertise tailored to your needs.
+      From the start, your success has been the driving force behind everything we do.
+      We work as an extension of your team to deliver reliable, high-performance database solutions.
+      Our approach ensures your systems stay secure, scalable, and always available.
+    </p>
+  </div>
+
+
 
   <!-- GRID SECTION -->
 <section>
@@ -1425,7 +1456,6 @@ Our approach ensures your systems stay secure, scalable, and always available.
     <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
     <h3>Email Us</h3>
     <p>rastogi.arpit1412@gmail.com</p>
-    <p>rastogi.arpit987@gmail.com</p>
   </div>
 
   <div class="info-card">
@@ -1454,8 +1484,10 @@ Our approach ensures your systems stay secure, scalable, and always available.
   <button type="submit">Send Message</button>
 
 </form>
-</div> 
+</div>  
+
   </div>
+
 </section>
 
 
@@ -1470,6 +1502,9 @@ Our approach ensures your systems stay secure, scalable, and always available.
       form.reset();
     }
   });
+
+
+
 </script>
 </form>
 </section>
@@ -1532,7 +1567,7 @@ Our approach ensures your systems stay secure, scalable, and always available.
 
   <!-- BOTTOM BAR -->
   <div class="footer-bottom">
-    © 2026 ScalingDB Consulting. All Rights Reserved.
+    © 2026 ScalingDB Consulting | All Rights Reserved.
   </div>
 
 </footer>
@@ -1568,10 +1603,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-})
-  
+});
+
+
 </script>
-  
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById("menu-toggle");
@@ -1602,5 +1638,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
+
 </body>
 </html>
